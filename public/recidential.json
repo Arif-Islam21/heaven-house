@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "estate_title": "Dream Homes",
+    "segment_name": "Single-family homes",
+    "image": "dream_homes.jpg",
+    "description": "Luxurious homes with modern amenities",
+    "price": "$500,000",
+    "status": "sale",
+    "area": "3000 sq ft",
+    "location": "New York City",
+    "facilities": ["living room", "swimming pool", "kitchen"]
+  },
+  {
+    "id": 2,
+    "estate_title": "Green Valley Estates",
+    "segment_name": "Townhouses",
+    "image": "green_valley_estates.jpg",
+    "description": "Sustainable living amidst nature",
+    "price": "$400,000",
+    "status": "sale",
+    "area": "2500 sq ft",
+    "location": "Los Angeles",
+    "facilities": ["garden", "playground", "gym"]
+  },
+  {
+    "id": 3,
+    "estate_title": "Cityscape Residences",
+    "segment_name": "Apartments",
+    "image": "cityscape_residences.jpg",
+    "description": "Urban living with panoramic views",
+    "price": "$600,000",
+    "status": "sale",
+    "area": "1800 sq ft",
+    "location": "Chicago",
+    "facilities": ["rooftop terrace", "fitness center", "security"]
+  },
+  {
+    "id": 4,
+    "estate_title": "Coastal Retreat Villas",
+    "segment_name": "Vacation Rentals",
+    "image": "coastal_retreat_villas.jpg",
+    "description": "Seaside living with stunning ocean views",
+    "price": "$700,000",
+    "status": "sale",
+    "area": "2200 sq ft",
+    "location": "Miami",
+    "facilities": ["beach access", "spa", "clubhouse"]
+  },
+  {
+    "id": 5,
+    "estate_title": "Tranquil Haven Homes",
+    "segment_name": "Student Housing",
+    "image": "tranquil_haven_homes.jpg",
+    "description": "Peaceful retreat in the countryside",
+    "price": "$300,000",
+    "status": "sale",
+    "area": "2000 sq ft",
+    "location": "Seattle",
+    "facilities": ["backyard", "fireplace", "walking trails"]
+  },
+  {
+    "id": 6,
+    "estate_title": "Skyline Apartments",
+    "segment_name": "Senior Living Communities",
+    "image": "skyline_apartments.jpg",
+    "description": "Elegant apartments in the heart of the city",
+    "price": "$1,000/month",
+    "status": "rent",
+    "area": "1200 sq ft",
+    "location": "San Francisco",
+    "facilities": ["balcony", "fitness center", "24/7 security"]
+  }
+]
