@@ -13,6 +13,11 @@ const Navbar = () => {
           <a>Log In</a>
         </li>
       </NavLink>
+      <NavLink to={"/register"}>
+        <li>
+          <a>Register</a>
+        </li>
+      </NavLink>
       <NavLink to={"/profileUpdate"}>
         <li>
           <a>Update Profile</a>
