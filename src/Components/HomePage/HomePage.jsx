@@ -4,7 +4,9 @@ import EstateCard from "../EstateCard/EstateCard";
 const HomePage = () => {
   return (
     <div>
-      <Banner></Banner>
+      <div className="mb-12">
+        <Banner></Banner>
+      </div>
       <EstateCard></EstateCard>
     </div>
   );

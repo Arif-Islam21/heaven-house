@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Card from "./Card";
 
 const EstateCard = () => {
   const [estateData, setEstateData] = useState([]);
@@ -11,9 +12,13 @@ const EstateCard = () => {
       .then((data) => setEstateData(data));
   }, []);
 
-  console.log(estateData);
-
-  return <div></div>;
+  return (
+    <div>
+      {estateData.map((estate) => (
+        <Card key={estate.id} estate={estate}></Card>
+      ))}
+    </div>
+  );
 };
 
 export default EstateCard;
