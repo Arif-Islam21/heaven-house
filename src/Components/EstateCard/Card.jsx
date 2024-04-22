@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { IoLocation } from "react-icons/io5";
 
 const Card = ({ estate }) => {
   const {
@@ -21,7 +22,7 @@ const Card = ({ estate }) => {
         <div className="card-body">
           <h2 className="card-title">
             {segment_name}
-            <div className="badge badge-secondary">{status}</div>
+            <div className="badge bg-lime-500 text-white p-2">{status}</div>
           </h2>
           <p>{estate_title}</p>
           <div className="card-actions my-4">
@@ -36,7 +37,9 @@ const Card = ({ estate }) => {
           </div>
           <div className="flex justify-between items-center">
             <div>
-              <h2 className="justify-start">{location}</h2>
+              <h2 className="justify-start flex gap-2 items-center font-semibold">
+                <IoLocation /> {location}
+              </h2>
             </div>
             <div className="card-actions justify-end">
               <button className="relative   overflow-hidden group bg-green-500 text-white px-4 py-2 rounded-md shadow-xl hover:bg-green-600">
