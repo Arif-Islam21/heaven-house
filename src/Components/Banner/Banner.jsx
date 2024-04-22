@@ -1,25 +1,15 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import photo1 from "/assets/pexels-curtis-adams-1694007-5502227.jpg";
+import photo2 from "/public/assets/pexels-ibidsy-5524205.jpg";
+import photo3 from "/public/assets/pexels-jessica-bryant-592135-1370704.jpg";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import { useEffect, useState } from "react";
 
 const Banner = () => {
-  const [estateData, setEstateData] = useState([]);
-
-  useEffect(() => {
-    // fetch(
-    //   "https://arif-islam21.github.io/recidential-json-data/recidential.json"
-    // )
-    fetch("../../../public/recidential.json")
-      .then((res) => res.json())
-      .then((data) => setEstateData(data));
-  }, []);
-
-  console.log(estateData);
   return (
     <Swiper
       // install Swiper modules
@@ -32,12 +22,15 @@ const Banner = () => {
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log("slide change")}
     >
-      {estateData.map((estate) => (
-        <SwiperSlide key={estate.id}>
-          <img src={estate.image} alt={estate.description} />
-        </SwiperSlide>
-      ))}
-      ...
+      <SwiperSlide>
+        <img className="w-full h-[80vh]" src={photo1} alt="this is a photo" />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img className="w-full h-[80vh]" src={photo2} alt="this is a photo" />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img className="w-full h-[80vh]" src={photo3} alt="this is a photo" />
+      </SwiperSlide>
     </Swiper>
   );
 };
