@@ -13,7 +13,7 @@ const EstateCard = () => {
   }, []);
 
   return (
-    <div>
+    <div className="grid gap-8 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mx-4">
       {estateData.map((estate) => (
         <Card key={estate.id} estate={estate}></Card>
       ))}
