@@ -12,15 +12,14 @@ import "swiper/css/scrollbar";
 const Banner = () => {
   return (
     <Swiper
-      // install Swiper modules
       modules={[Navigation, Pagination]}
       spaceBetween={50}
       slidesPerView={1}
       navigation
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log("slide change")}
+      // onSwiper={(swiper) => console.log(swiper)}
+      // onSlideChange={() => console.log("slide change")}
     >
       <SwiperSlide>
         <img className="w-full h-[80vh]" src={photo1} alt="this is a photo" />
