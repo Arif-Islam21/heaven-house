@@ -1,5 +1,8 @@
 JSON data link: https://arif-islam21.github.io/recidential-json-data/recidential.json
 
+npm pakages used:
+=> Swiper Slider
+
 Image links:
 https://ibb.co/fYhS2Pd
 https://ibb.co/qN9vVFF
