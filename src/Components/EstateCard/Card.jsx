@@ -1,12 +1,13 @@
 import PropTypes from "prop-types";
 import { IoLocation } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const Card = ({ estate }) => {
   const {
+    id,
     estate_title,
     segment_name,
     image,
-    price,
     status,
     location,
     facilities,
@@ -29,7 +30,7 @@ const Card = ({ estate }) => {
             {facilities.map((faciliti, idx) => (
               <div
                 key={idx}
-                className="badge px-4 py-3 font-semibold badge-outline"
+                className="badge bg-green-200 text-green-900 px-4 py-3 font-semibold badge-outline"
               >
                 #{faciliti}
               </div>
@@ -42,10 +43,12 @@ const Card = ({ estate }) => {
               </h2>
             </div>
             <div className="card-actions justify-end">
-              <button className="relative   overflow-hidden group bg-green-500 text-white px-4 py-2 rounded-md shadow-xl hover:bg-green-600">
-                <span className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white via-transparent to-transparent transform scale-0 group-hover:scale-150 transition-transform"></span>
-                View Property
-              </button>
+              <Link to={`/viewProperty/${id}`}>
+                <button className="relative   overflow-hidden group bg-green-500 text-white px-4 py-2 rounded-md shadow-xl hover:bg-green-600">
+                  <span className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white via-transparent to-transparent transform scale-0 group-hover:scale-150 transition-transform"></span>
+                  View Property
+                </button>
+              </Link>
             </div>
           </div>
         </div>

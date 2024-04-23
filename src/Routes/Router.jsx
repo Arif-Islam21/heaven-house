@@ -6,6 +6,7 @@ import ProfileUpdate from "../Components/ProfileUpdate/ProfileUpdate";
 import UserProfile from "../Components/UserProfile/UserProfile";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import Register from "../Components/Register/Register";
+import ViewProperty from "../Components/ViewProperty/ViewProperty";
 
 const router = createBrowserRouter([
   {
@@ -26,12 +27,16 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "profileUpdate",
+        path: "/profileUpdate",
         element: <ProfileUpdate></ProfileUpdate>,
       },
       {
-        path: "profile",
+        path: "/profile",
         element: <UserProfile></UserProfile>,
+      },
+      {
+        path: "/viewProperty/:id",
+        element: <ViewProperty></ViewProperty>,
       },
     ],
   },
