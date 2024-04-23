@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         element: <UserProfile></UserProfile>,
       },
       {
-        path: "/viewProperty/:id",
+        path: "/property/:id",
         element: <ViewProperty></ViewProperty>,
       },
     ],

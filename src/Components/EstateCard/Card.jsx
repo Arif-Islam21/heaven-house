@@ -13,7 +13,6 @@ const Card = ({ estate }) => {
     facilities,
   } = estate;
 
-  console.log(estate);
   return (
     <div>
       <div className="card min-h-[70vh] bg-base-100 shadow-xl">
@@ -43,7 +42,7 @@ const Card = ({ estate }) => {
               </h2>
             </div>
             <div className="card-actions justify-end">
-              <Link to={`/viewProperty/${id}`}>
+              <Link to={`/property/${id}`}>
                 <button className="relative   overflow-hidden group bg-green-500 text-white px-4 py-2 rounded-md shadow-xl hover:bg-green-600">
                   <span className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white via-transparent to-transparent transform scale-0 group-hover:scale-150 transition-transform"></span>
                   View Property
