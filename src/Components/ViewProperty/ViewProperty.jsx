@@ -1,14 +1,31 @@
+import { useLoaderData, useParams } from "react-router-dom";
+
 const ViewProperty = () => {
+  const property = useLoaderData();
+  const { id } = useParams();
+  const propertyInt = parseInt(id);
+  const propertyData = property?.find(
+    (singleProperty) => singleProperty.id === propertyInt
+  );
+  const {
+    estate_title,
+    segment_name,
+    image,
+    description,
+    price,
+    status,
+    area,
+    location,
+    facilities,
+  } = propertyData;
+
   return (
     <div>
       <section className=" container mx-auto my-12">
         <div className="hero min-h-[85vh] ">
           <div className="hero-content  flex-col lg:flex-row">
             <div className="w-1/2 bg-base-200 py-36 flex min-h-full justify-center items-center">
-              <img
-                src="image source here"
-                className="max-w-sm rounded-lg shadow-2xl"
-              />
+              <img src={image} className="max-w-sm rounded-lg shadow-2xl" />
             </div>
             <div className="w-1/2 pl-8">
               <h1 className="text-2xl lg:text-5xl font-bold">bookName</h1>
