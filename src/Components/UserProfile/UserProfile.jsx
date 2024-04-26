@@ -1,13 +1,24 @@
-import { useContext } from "react";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const UserProfile = () => {
-  const authInfo = useContext(AuthContext);
-  console.log(authInfo);
-
   return (
-    <div>
-      <h2>This is the user profile sectioin</h2>
+    <div className="card w-96 glass">
+      <Helmet>
+        <title>User Profile</title>
+      </Helmet>
+      <figure>
+        <img
+          src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+          alt="car!"
+        />
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title">Life hack</h2>
+        <p>How to park your car at your garage?</p>
+        <div className="card-actions justify-end">
+          <button className="btn btn-primary">Learn now!</button>
+        </div>
+      </div>
     </div>
   );
 };

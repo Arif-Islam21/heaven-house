@@ -14,7 +14,8 @@ NPM packages used :
 3. Swiper Slider
 4. PropTypes
 5. React Icons
-6. Firebases
+6. Firebase
+7. react-healmet
 
 JSON data link: https://arif-islam21.github.io/recidential-json-data/recidential.json
 

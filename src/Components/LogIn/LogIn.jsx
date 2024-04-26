@@ -2,12 +2,15 @@ import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
+import { Helmet } from "react-helmet";
 
 const LogIn = () => {
   const { register, handleSubmit } = useForm();
   const { emailSignIn, googleLogIn, githubLogIn } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
   const [success, setSuccess] = useState("");
+
+  // dynamic title
 
   // ONSUBMIT EVENT HANDLER
   const onSubmit = (data) => {
@@ -54,6 +57,9 @@ const LogIn = () => {
 
   return (
     <div className="container mx-auto">
+      <Helmet>
+        <title>Login Page</title>
+      </Helmet>
       <div className="hero  min-h-screen bg-base-100">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:pl-24 lg:text-left">
