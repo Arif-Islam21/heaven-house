@@ -4,29 +4,19 @@ const Navbar = () => {
   const links = (
     <>
       <NavLink to={"/"}>
-        <li>
-          <a>Home</a>
-        </li>
+        <li>Home</li>
       </NavLink>
       <NavLink to={"/login"}>
-        <li>
-          <a>Log In</a>
-        </li>
+        <li>Log In</li>
       </NavLink>
       <NavLink to={"/register"}>
-        <li>
-          <a>Register</a>
-        </li>
+        <li>Register</li>
       </NavLink>
       <NavLink to={"/map"}>
-        <li>
-          <a>Map</a>
-        </li>
+        <li>Map</li>
       </NavLink>
       <NavLink to={"/profile"}>
-        <li>
-          <a>Profile</a>
-        </li>
+        <li>Profile</li>
       </NavLink>
     </>
   );
