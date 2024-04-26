@@ -7,6 +7,7 @@ import UserProfile from "../Components/UserProfile/UserProfile";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import Register from "../Components/Register/Register";
 import ViewProperty from "../Components/ViewProperty/ViewProperty";
+import Map from "../Components/Map/Map";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <UserProfile></UserProfile>,
+      },
+      {
+        path: "/map",
+        element: <Map></Map>,
       },
       {
         path: "/property/:id",
