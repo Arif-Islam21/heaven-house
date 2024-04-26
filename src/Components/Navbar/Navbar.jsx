@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
+
   const links = (
     <>
       <NavLink to={"/"}>
@@ -54,31 +59,23 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <div className="dropdown dropdown-end">
+        <div
+          className="dropdown tooltip-left flex gap-x-4 dropdown-end"
+          data-tip="User Name"
+        >
+          <button className="btn btn-ghost">Log Out</button>
           <div
             tabIndex={0}
             role="button"
-            className="btn btn-ghost btn-circle avatar tooltip tooltip-left"
-            data-tip="User Name"
+            className="btn  flex btn-ghost btn-circle avatar "
           >
-            <div className="w-10 rounded-full">
+            <div className="w-10 tooltip  rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
                 src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
               />
             </div>
           </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
         </div>
       </div>
     </div>
