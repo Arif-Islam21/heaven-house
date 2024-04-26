@@ -1,11 +1,11 @@
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 
 const UserProfile = () => {
   return (
     <div className="card w-96 glass">
-      <Helmet>
+      {/* <Helmet>
         <title>User Profile</title>
-      </Helmet>
+      </Helmet> */}
       <figure>
         <img
           src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"

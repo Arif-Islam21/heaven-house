@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 
 const LogIn = () => {
   const { register, handleSubmit } = useForm();
@@ -59,9 +59,9 @@ const LogIn = () => {
 
   return (
     <div className="container mx-auto">
-      <Helmet>
+      {/* <Helmet>
         <title>Login Page</title>
-      </Helmet>
+      </Helmet> */}
       <div className="hero  min-h-screen bg-base-100">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:pl-24 lg:text-left">
