@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_APIKEY,
-  authDomain: import.meta.env.VITE_AUTHDOMAIN,
-  projectId: import.meta.env.VITE_PROJECTID,
-  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
-  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
-  appId: import.meta.env.VITE_APPID,
+  apiKey: "AIzaSyD5gRzxENFppiEHJG6ZEtU8ET3dCuUp5Xs",
+  authDomain: "heaven-house-44d2b.firebaseapp.com",
+  projectId: "heaven-house-44d2b",
+  storageBucket: "heaven-house-44d2b.appspot.com",
+  messagingSenderId: "797720108704",
+  appId: "1:797720108704:web:2c161bf87dd2d3eb1b33c5",
 };
 
 // Initialize Firebase
