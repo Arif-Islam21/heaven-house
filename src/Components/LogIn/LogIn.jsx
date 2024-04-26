@@ -6,11 +6,10 @@ import { Helmet } from "react-helmet";
 
 const LogIn = () => {
   const { register, handleSubmit } = useForm();
-  const { emailSignIn, googleLogIn, githubLogIn } = useContext(AuthContext);
+  const { emailSignIn, googleLogIn, githubLogIn, setUser } =
+    useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
   const [success, setSuccess] = useState("");
-
-  // dynamic title
 
   // ONSUBMIT EVENT HANDLER
   const onSubmit = (data) => {
@@ -22,6 +21,7 @@ const LogIn = () => {
       .then((result) => {
         console.log(result.user);
         setSuccess("User Logged in successfully");
+        setUser(result.user);
       })
       .catch((error) => {
         console.error(error);
@@ -35,6 +35,7 @@ const LogIn = () => {
       .then((result) => {
         console.log(result.user);
         setSuccess("User Loged in with Github");
+        setUser(result.user);
       })
       .catch((error) => {
         console.error(error);
@@ -48,6 +49,7 @@ const LogIn = () => {
       .then((result) => {
         console.log(result.user);
         setSuccess("User Loged in with Google");
+        setUser(result.user);
       })
       .catch((error) => {
         console.error(error);

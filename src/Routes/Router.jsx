@@ -8,6 +8,7 @@ import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import Register from "../Components/Register/Register";
 import ViewProperty from "../Components/ViewProperty/ViewProperty";
 import Map from "../Components/Map/Map";
+import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <UserProfile></UserProfile>,
+        element: (
+          <PrivateRoute>
+            <UserProfile></UserProfile>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/map",
