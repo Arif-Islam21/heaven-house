@@ -18,9 +18,9 @@ const Navbar = () => {
           <a>Register</a>
         </li>
       </NavLink>
-      <NavLink to={"/profileUpdate"}>
+      <NavLink to={"/map"}>
         <li>
-          <a>Update Profile</a>
+          <a>Map</a>
         </li>
       </NavLink>
       <NavLink to={"/profile"}>
