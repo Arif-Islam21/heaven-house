@@ -1,13 +1,22 @@
-JSON data link: https://arif-islam21.github.io/recidential-json-data/recidential.json
+Website Name : Heaven House
+
+Features of this website ==>
+--> Decorative banner
+--> Login and Registration page
+--> Beautifull Footer
+--> Map showing on the website
+--> Fully Responsive
 
 NPM packages used :
 
 1. React Leaflet
-   2.React Hook Form
-   3.Swiper Slider
+2. React Hook Form
+3. Swiper Slider
+4. PropTypes
+5. React Icons
+6. Firebases
 
-npm pakages used:
-=> Swiper Slider
+JSON data link: https://arif-islam21.github.io/recidential-json-data/recidential.json
 
 Image links:
 https://i.ibb.co/3SB04Bt/pexels-alex-staudinger-829197-1732414.jpg
