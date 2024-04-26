@@ -1,12 +1,23 @@
 import { NavLink } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const Register = () => {
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    const email = data.email;
+    const name = data.name;
+    const photoUrl = data.photoUrl;
+    const password = data.password;
+    console.log(email, name, photoUrl, password);
+  };
+
   return (
     <div>
       <div className="hero min-h-full bg-base-100">
         <div className="hero-content">
           <div className="card shrink-0 w-full px-12 py-6 shadow-2xl bg-base-100">
-            <form className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -15,7 +26,8 @@ const Register = () => {
                   type="text"
                   placeholder="Your Name"
                   className="input input-bordered"
-                  required
+                  name="name"
+                  {...register("name")}
                 />
               </div>
               <div className="form-control">
@@ -25,8 +37,9 @@ const Register = () => {
                 <input
                   type="email"
                   placeholder="email"
+                  name="email"
+                  {...register("email")}
                   className="input input-bordered"
-                  required
                 />
               </div>
               <div className="form-control">
@@ -37,6 +50,7 @@ const Register = () => {
                   type="text"
                   placeholder="Photo Url"
                   className="input input-bordered"
+                  {...register("photoUrl")}
                   required
                 />
               </div>
@@ -48,6 +62,7 @@ const Register = () => {
                   type="password"
                   placeholder="password"
                   className="input input-bordered"
+                  {...register("password")}
                   required
                 />
                 <label className="label label-text-alt link link-hover">
