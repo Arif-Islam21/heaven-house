@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
@@ -6,7 +6,10 @@ import { useForm } from "react-hook-form";
 const LogIn = () => {
   const { register, handleSubmit } = useForm();
   const { emailSignIn, googleLogIn, githubLogIn } = useContext(AuthContext);
+  const [loginError, setLoginError] = useState("");
+  const [success, setSuccess] = useState("");
 
+  // ONSUBMIT EVENT HANDLER
   const onSubmit = (data) => {
     const email = data.email;
     const password = data.password;
@@ -15,31 +18,37 @@ const LogIn = () => {
     emailSignIn(email, password)
       .then((result) => {
         console.log(result.user);
+        setSuccess("User Logged in successfully");
       })
       .catch((error) => {
         console.error(error);
+        setLoginError(error.message);
       });
   };
 
+  // GITHUB SIGN IN EVENT HANDLER
   const handleGithubSignIn = () => {
     githubLogIn()
       .then((result) => {
         console.log(result.user);
+        setSuccess("User Loged in with Github");
       })
       .catch((error) => {
         console.error(error);
+        setLoginError(error.message);
       });
-    console.log("signing in with google");
   };
 
+  // GOOGLE SIGN IN HANDLER
   const handleGoogleSignIn = () => {
-    console.log("working with Google sign in");
     googleLogIn()
       .then((result) => {
         console.log(result.user);
+        setSuccess("User Loged in with Google");
       })
       .catch((error) => {
         console.error(error);
+        setLoginError(error.message);
       });
   };
 
@@ -113,6 +122,8 @@ const LogIn = () => {
                 Github login
               </button>
             </div>
+            {loginError && alert(loginError)}
+            {success && alert(success)}
           </div>
         </div>
       </div>

@@ -19,6 +19,19 @@ const Register = () => {
     const password = data.password;
     console.log(email, name, photoUrl, password);
 
+    if (password.length < 6) {
+      setError("Password should be at least 6 chacter");
+      return;
+    }
+    if (!/^(?=.*[A-Z]).+$/.test(password)) {
+      setError("Password must contain an uppercase");
+      return;
+    }
+    if (!/^(?=.*[a-z]).+$/.test(password)) {
+      setError("Password must contain an lowercase");
+      return;
+    }
+
     emailSignUp(email, password)
       .then((result) => {
         console.log(result.user);
