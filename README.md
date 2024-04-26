@@ -1,5 +1,11 @@
 JSON data link: https://arif-islam21.github.io/recidential-json-data/recidential.json
 
+NPM packages used :
+
+1. React Leaflet
+   2.React Hook Form
+   3.Swiper Slider
+
 npm pakages used:
 => Swiper Slider
 

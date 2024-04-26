@@ -2,12 +2,15 @@ import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { FaEye } from "react-icons/fa";
+import { AiFillEyeInvisible } from "react-icons/ai";
 
 const Register = () => {
   const { register, handleSubmit } = useForm();
   const { emailSignUp } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [showPass, setShowPass] = useState(false);
 
   const onSubmit = (data) => {
     const email = data.email;
@@ -73,13 +76,21 @@ const Register = () => {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input
-                  type="password"
-                  placeholder="password"
-                  className="input input-bordered"
-                  {...register("password")}
-                  required
-                />
+                <div className="flex relative items-center">
+                  <input
+                    type={showPass ? "text" : "password"}
+                    placeholder="password"
+                    className="input input-bordered"
+                    {...register("password")}
+                    required
+                  />
+                  <span
+                    onClick={() => setShowPass(!showPass)}
+                    className="absolute right-4"
+                  >
+                    {showPass ? <AiFillEyeInvisible /> : <FaEye />}
+                  </span>
+                </div>
                 <label className="label label-text-alt link link-hover">
                   <p>
                     Already have an account?{" "}
