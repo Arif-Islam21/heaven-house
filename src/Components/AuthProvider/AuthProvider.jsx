@@ -1,6 +1,7 @@
 import { createContext } from "react";
 import PropTypes from "prop-types";
 import {
+  GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -19,15 +20,21 @@ const AuthProvider = ({ children }) => {
   };
 
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   const googleLogIn = () => {
     return signInWithPopup(auth, googleProvider);
+  };
+
+  const githubLogIn = () => {
+    return signInWithPopup(auth, githubProvider);
   };
 
   const authInfo = {
     emailSignUp,
     emailSignIn,
     googleLogIn,
+    githubLogIn,
   };
 
   return (

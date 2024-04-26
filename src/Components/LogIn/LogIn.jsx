@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 
 const LogIn = () => {
   const { register, handleSubmit } = useForm();
-  const { emailSignIn, googleLogIn } = useContext(AuthContext);
+  const { emailSignIn, googleLogIn, githubLogIn } = useContext(AuthContext);
 
   const onSubmit = (data) => {
     const email = data.email;
@@ -21,13 +21,24 @@ const LogIn = () => {
       });
   };
 
+  const handleGithubSignIn = () => {
+    githubLogIn()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    console.log("signing in with google");
+  };
+
   const handleGoogleSignIn = () => {
     console.log("working with Google sign in");
     googleLogIn()
       .then((result) => {
         console.log(result.user);
       })
-      .then((error) => {
+      .catch((error) => {
         console.error(error);
       });
   };
@@ -95,7 +106,10 @@ const LogIn = () => {
               >
                 Google Login
               </button>
-              <button className="btn btn-outline btn-success">
+              <button
+                onClick={handleGithubSignIn}
+                className="btn btn-outline btn-success"
+              >
                 Github login
               </button>
             </div>
