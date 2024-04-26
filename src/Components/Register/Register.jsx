@@ -1,11 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Register = () => {
   const { register, handleSubmit } = useForm();
   const { emailSignUp } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const onSubmit = (data) => {
     const email = data.email;
@@ -17,9 +19,11 @@ const Register = () => {
     emailSignUp(email, password)
       .then((result) => {
         console.log(result.user);
+        setSuccess("User Created Successfully");
       })
       .catch((error) => {
         console.error(error);
+        setError(error.message.split("/").slice(1));
       });
   };
 
@@ -92,6 +96,8 @@ const Register = () => {
                 <button className="btn btn-primary">Register</button>
               </div>
             </form>
+            {error && alert(error)}
+            {success && alert(success)}
           </div>
         </div>
       </div>
