@@ -46,7 +46,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/property/:id",
-        element: <ViewProperty></ViewProperty>,
+        element: (
+          <PrivateRoute>
+            <ViewProperty></ViewProperty>
+          </PrivateRoute>
+        ),
         loader: () =>
           fetch(
             `https://arif-islam21.github.io/recidential-json-data/recidential.json`
