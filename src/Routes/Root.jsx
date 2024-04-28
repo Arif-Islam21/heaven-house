@@ -7,8 +7,8 @@ const Root = () => {
     <div className="flex flex-col min-h-screen">
       <div className="flex-1">
         <Navbar></Navbar>
-        <Outlet></Outlet>
       </div>
+      <Outlet></Outlet>
       <div className="">
         <Footer></Footer>
       </div>

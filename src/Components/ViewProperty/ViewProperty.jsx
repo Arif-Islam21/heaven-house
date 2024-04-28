@@ -7,17 +7,7 @@ const ViewProperty = () => {
   const propertyData = property?.find(
     (singleProperty) => singleProperty.id === propertyInt
   );
-  const {
-    estate_title,
-    segment_name,
-    image,
-    description,
-    price,
-    status,
-    area,
-    location,
-    facilities,
-  } = propertyData;
+  const { segment_name, image, description } = propertyData;
 
   return (
     <div>

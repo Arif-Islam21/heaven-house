@@ -1,8 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-// import photo1 from "/assets/pexels-curtis-adams-1694007-5502227.jpg";
-// import photo2 from "/public/assets/pexels-ibidsy-5524205.jpg";
-// import photo3 from "/public/assets/pexels-jessica-bryant-592135-1370704.jpg";
 
 import "swiper/css";
 import "swiper/css/navigation";
