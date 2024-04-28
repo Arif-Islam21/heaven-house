@@ -1,9 +1,9 @@
-import { useContext } from "react";
+// import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+// import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  // const { user, logOut } = useContext(AuthContext);
 
   const links = (
     <>
@@ -58,7 +58,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        {user && (
+        {/* {user && (
           <div
             className="dropdown mt-4 tooltip flex gap-x-4 dropdown-end"
             data-tip={user?.displayName ? user.displayName : "User Name"}
@@ -88,7 +88,7 @@ const Navbar = () => {
           <Link to="login" className="btn btn-ghost">
             Log In
           </Link>
-        )}
+        )} */}
       </div>
     </div>
   );

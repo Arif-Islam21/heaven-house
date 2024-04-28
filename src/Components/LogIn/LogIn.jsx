@@ -1,15 +1,15 @@
-import { useContext, useState } from "react";
+// import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+// import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
 // import { Helmet } from "react-helmet";
 
 const LogIn = () => {
   const { register, handleSubmit } = useForm();
-  const { emailSignIn, googleLogIn, githubLogIn, setUser } =
-    useContext(AuthContext);
-  const [loginError, setLoginError] = useState("");
-  const [success, setSuccess] = useState("");
+  // const { emailSignIn, googleLogIn, githubLogIn, setUser } =
+  // useContext(AuthContext);
+  // const [loginError, setLoginError] = useState("");
+  // const [success, setSuccess] = useState("");
 
   // ONSUBMIT EVENT HANDLER
   const onSubmit = (data) => {
@@ -17,45 +17,45 @@ const LogIn = () => {
     const password = data.password;
     console.log(email, password);
 
-    emailSignIn(email, password)
-      .then((result) => {
-        console.log(result.user);
-        setSuccess("User Logged in successfully");
-        setUser(result.user);
-      })
-      .catch((error) => {
-        console.error(error);
-        setLoginError(error.message);
-      });
+    // emailSignIn(email, password)
+    //   .then((result) => {
+    //     console.log(result.user);
+    //     setSuccess("User Logged in successfully");
+    //     setUser(result.user);
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //     setLoginError(error.message);
+    //   });
   };
 
   // GITHUB SIGN IN EVENT HANDLER
-  const handleGithubSignIn = () => {
-    githubLogIn()
-      .then((result) => {
-        console.log(result.user);
-        setSuccess("User Loged in with Github");
-        setUser(result.user);
-      })
-      .catch((error) => {
-        console.error(error);
-        setLoginError(error.message);
-      });
-  };
+  // const handleGithubSignIn = () => {
+  //   githubLogIn()
+  //     .then((result) => {
+  //       console.log(result.user);
+  //       setSuccess("User Loged in with Github");
+  //       setUser(result.user);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       setLoginError(error.message);
+  //     });
+  // };
 
   // GOOGLE SIGN IN HANDLER
-  const handleGoogleSignIn = () => {
-    googleLogIn()
-      .then((result) => {
-        console.log(result.user);
-        setSuccess("User Loged in with Google");
-        setUser(result.user);
-      })
-      .catch((error) => {
-        console.error(error);
-        setLoginError(error.message);
-      });
-  };
+  // const handleGoogleSignIn = () => {
+  //   googleLogIn()
+  //     .then((result) => {
+  //       console.log(result.user);
+  //       setSuccess("User Loged in with Google");
+  //       setUser(result.user);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       setLoginError(error.message);
+  //     });
+  // };
 
   return (
     <div className="container mx-auto">
@@ -118,20 +118,20 @@ const LogIn = () => {
             </form>
             <div className="flex justify-around mb-8">
               <button
-                onClick={handleGoogleSignIn}
+                // onClick={handleGoogleSignIn}
                 className="btn btn-outline btn-success"
               >
                 Google Login
               </button>
               <button
-                onClick={handleGithubSignIn}
+                // onClick={handleGithubSignIn}
                 className="btn btn-outline btn-success"
               >
                 Github login
               </button>
             </div>
-            {loginError && alert(loginError)}
-            {success && alert(success)}
+            {/* {loginError && alert(loginError)}
+            {success && alert(success)} */}
           </div>
         </div>
       </div>

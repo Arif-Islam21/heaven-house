@@ -4,7 +4,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // import router from "./Routes/Router";
-import AuthProvider from "./Components/AuthProvider/AuthProvider";
+// import AuthProvider from "./Components/AuthProvider/AuthProvider";
 import Root from "./Routes/Root";
 import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import HomePage from "./Components/HomePage/HomePage";
@@ -68,8 +68,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    {/* <AuthProvider> */}
+    <RouterProvider router={router} />
+    {/* </AuthProvider> */}
   </React.StrictMode>
 );
