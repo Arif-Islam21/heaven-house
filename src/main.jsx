@@ -50,18 +50,18 @@ const router = createBrowserRouter([
         path: "/map",
         element: <Map></Map>,
       },
-      {
-        path: "/property/:id",
-        element: (
-          <PrivateRoute>
-            <ViewProperty></ViewProperty>
-          </PrivateRoute>
-        ),
-        loader: () =>
-          fetch(
-            `https://arif-islam21.github.io/recidential-json-data/recidential.json`
-          ),
-      },
+      // {
+      //   path: "/property/:id",
+      //   element: (
+      //     <PrivateRoute>
+      //       <ViewProperty></ViewProperty>
+      //     </PrivateRoute>
+      //   ),
+      //   loader: () =>
+      //     fetch(
+      //       `https://arif-islam21.github.io/recidential-json-data/recidential.json`
+      //     ),
+      // },
     ],
   },
 ]);

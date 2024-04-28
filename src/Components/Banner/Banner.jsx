@@ -1,8 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import photo1 from "/assets/pexels-curtis-adams-1694007-5502227.jpg";
-import photo2 from "/public/assets/pexels-ibidsy-5524205.jpg";
-import photo3 from "/public/assets/pexels-jessica-bryant-592135-1370704.jpg";
+// import photo1 from "/assets/pexels-curtis-adams-1694007-5502227.jpg";
+// import photo2 from "/public/assets/pexels-ibidsy-5524205.jpg";
+// import photo3 from "/public/assets/pexels-jessica-bryant-592135-1370704.jpg";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -22,13 +22,25 @@ const Banner = () => {
       // onSlideChange={() => console.log("slide change")}
     >
       <SwiperSlide>
-        <img className="w-full h-[80vh]" src={photo1} alt="this is a photo" />
+        <img
+          className="w-full h-[80vh]"
+          src="https://i.ibb.co/3SB04Bt/pexels-alex-staudinger-829197-1732414.jpg"
+          alt="this is a photo"
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <img className="w-full h-[80vh]" src={photo2} alt="this is a photo" />
+        <img
+          className="w-full h-[80vh]"
+          src="https://i.ibb.co/553XgHg/pexels-jessica-bryant-592135-1370704.jpg"
+          alt="this is a photo"
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <img className="w-full h-[80vh]" src={photo3} alt="this is a photo" />
+        <img
+          className="w-full h-[80vh]"
+          src="https://i.ibb.co/NnZRCJk/pexels-lina-3625713.jpg"
+          alt="this is a photo"
+        />
       </SwiperSlide>
     </Swiper>
   );
