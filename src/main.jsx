@@ -11,10 +11,10 @@ import HomePage from "./Components/HomePage/HomePage";
 import LogIn from "./Components/LogIn/LogIn";
 import Register from "./Components/Register/Register";
 import ProfileUpdate from "./Components/ProfileUpdate/ProfileUpdate";
-// import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
-// import UserProfile from "./Components/UserProfile/UserProfile";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import UserProfile from "./Components/UserProfile/UserProfile";
 import Map from "./Components/Map/Map";
-// import ViewProperty from "./Components/ViewProperty/ViewProperty";
+import ViewProperty from "./Components/ViewProperty/ViewProperty";
 
 const router = createBrowserRouter([
   {
@@ -38,30 +38,30 @@ const router = createBrowserRouter([
         path: "/profileUpdate",
         element: <ProfileUpdate></ProfileUpdate>,
       },
-      // {
-      //   path: "/profile",
-      //   element: (
-      //     <PrivateRoute>
-      //       <UserProfile></UserProfile>
-      //     </PrivateRoute>
-      //   ),
-      // },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoute>
+            <UserProfile></UserProfile>
+          </PrivateRoute>
+        ),
+      },
       {
         path: "/map",
         element: <Map></Map>,
       },
-      // {
-      //   path: "/property/:id",
-      //   element: (
-      //     <PrivateRoute>
-      //       <ViewProperty></ViewProperty>
-      //     </PrivateRoute>
-      //   ),
-      //   loader: () =>
-      //     fetch(
-      //       `https://arif-islam21.github.io/recidential-json-data/recidential.json`
-      //     ),
-      // },
+      {
+        path: "/property/:id",
+        element: (
+          <PrivateRoute>
+            <ViewProperty></ViewProperty>
+          </PrivateRoute>
+        ),
+        loader: () =>
+          fetch(
+            `https://arif-islam21.github.io/recidential-json-data/recidential.json`
+          ),
+      },
     ],
   },
 ]);
