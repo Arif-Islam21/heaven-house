@@ -2,12 +2,15 @@
 import { NavLink } from "react-router-dom";
 // import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { AuthContext } from "../../Firebase/AuthProvider";
 // import { Helmet } from "react-helmet";
 
 const LogIn = () => {
   const { register, handleSubmit } = useForm();
+  const { emailSignUp } = useContext(AuthContext);
   // const { emailSignIn, googleLogIn, githubLogIn, setUser } =
-  // useContext(AuthContext);
+  //   useContext(AuthContext);
   // const [loginError, setLoginError] = useState("");
   // const [success, setSuccess] = useState("");
 
@@ -16,6 +19,14 @@ const LogIn = () => {
     const email = data.email;
     const password = data.password;
     console.log(email, password);
+
+    emailSignUp(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
     // emailSignIn(email, password)
     //   .then((result) => {
@@ -117,21 +128,13 @@ const LogIn = () => {
               </div>
             </form>
             <div className="flex justify-around mb-8">
-              <button
-                // onClick={handleGoogleSignIn}
-                className="btn btn-outline btn-success"
-              >
+              <button className="btn btn-outline btn-success">
                 Google Login
               </button>
-              <button
-                // onClick={handleGithubSignIn}
-                className="btn btn-outline btn-success"
-              >
+              <button className="btn btn-outline btn-success">
                 Github login
               </button>
             </div>
-            {/* {loginError && alert(loginError)}
-            {success && alert(success)} */}
           </div>
         </div>
       </div>

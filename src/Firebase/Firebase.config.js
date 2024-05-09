@@ -6,16 +6,15 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_API_KEY,
-  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_MESSENGING_ID,
-  appId: import.meta.env.VITE_APP_ID,
+  apiKey: "AIzaSyAQqZG5KX71TelXcm_-PmPL7O8_qTYYj_Q",
+  authDomain: "heaven-house-2.firebaseapp.com",
+  projectId: "heaven-house-2",
+  storageBucket: "heaven-house-2.appspot.com",
+  messagingSenderId: "81160091160",
+  appId: "1:81160091160:web:fe6fca14d66c52258c356d",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
 export default auth;

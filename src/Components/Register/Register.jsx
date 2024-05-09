@@ -1,17 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useContext, useState } from "react";
-import { AuthContext } from "../AuthProvider/AuthProvider";
-import { FaEye } from "react-icons/fa";
-import { AiFillEyeInvisible } from "react-icons/ai";
-// import { Helmet } from "react-helmet";
-
+import { useContext } from "react";
+import { AuthContext } from "../../Firebase/AuthProvider";
 const Register = () => {
   const { register, handleSubmit } = useForm();
-  const { emailSignUp } = useContext(AuthContext);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-  const [showPass, setShowPass] = useState(false);
+
+  const { emailSignIn } = useContext(AuthContext);
 
   const onSubmit = (data) => {
     const email = data.email;
@@ -19,36 +13,17 @@ const Register = () => {
     const photoUrl = data.photoUrl;
     const password = data.password;
     console.log(email, name, photoUrl, password);
-
-    if (password.length < 6) {
-      setError("Password should be at least 6 chacter");
-      return;
-    }
-    if (!/^(?=.*[A-Z]).+$/.test(password)) {
-      setError("Password must contain an uppercase");
-      return;
-    }
-    if (!/^(?=.*[a-z]).+$/.test(password)) {
-      setError("Password must contain an lowercase");
-      return;
-    }
-
-    emailSignUp(email, password)
+    emailSignIn(email, password)
       .then((result) => {
         console.log(result.user);
-        setSuccess("User Created Successfully");
       })
       .catch((error) => {
-        console.error(error);
-        setError(error.message.split("/").slice(1));
+        console.log(error);
       });
   };
 
   return (
     <div>
-      {/* <Helmet>
-        <title>Registration Page</title>
-      </Helmet> */}
       <div className="hero min-h-full bg-base-100">
         <div className="hero-content">
           <div className="card shrink-0 w-full px-12 py-6 shadow-2xl bg-base-100">
@@ -95,18 +70,13 @@ const Register = () => {
                 </label>
                 <div className="flex relative items-center">
                   <input
-                    type={showPass ? "text" : "password"}
+                    type="password"
                     placeholder="password"
                     className="input input-bordered"
                     {...register("password")}
                     required
                   />
-                  <span
-                    onClick={() => setShowPass(!showPass)}
-                    className="absolute right-4"
-                  >
-                    {showPass ? <AiFillEyeInvisible /> : <FaEye />}
-                  </span>
+                  <span className="absolute right-4"></span>
                 </div>
                 <label className="label label-text-alt link link-hover">
                   <p>
@@ -124,8 +94,6 @@ const Register = () => {
                 <button className="btn btn-primary">Register</button>
               </div>
             </form>
-            {error && alert(error)}
-            {success && alert(success)}
           </div>
         </div>
       </div>

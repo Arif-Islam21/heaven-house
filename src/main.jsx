@@ -1,20 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-// import router from "./Routes/Router";
-// import AuthProvider from "./Components/AuthProvider/AuthProvider";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Routes/Root";
 import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import HomePage from "./Components/HomePage/HomePage";
 import LogIn from "./Components/LogIn/LogIn";
 import Register from "./Components/Register/Register";
-import ProfileUpdate from "./Components/ProfileUpdate/ProfileUpdate";
-import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
-import UserProfile from "./Components/UserProfile/UserProfile";
 import Map from "./Components/Map/Map";
 import ViewProperty from "./Components/ViewProperty/ViewProperty";
+import UserProfile from "./Components/UserProfile/UserProfile";
+import AuthProvider from "./Firebase/AuthProvider";
 
 const router = createBrowserRouter([
   {
@@ -35,32 +32,20 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/profileUpdate",
-        element: <ProfileUpdate></ProfileUpdate>,
-      },
-      {
-        path: "/profile",
-        element: (
-          <PrivateRoute>
-            <UserProfile></UserProfile>
-          </PrivateRoute>
-        ),
-      },
-      {
         path: "/map",
         element: <Map></Map>,
       },
       {
-        path: "/property/:id",
-        element: (
-          <PrivateRoute>
-            <ViewProperty></ViewProperty>
-          </PrivateRoute>
-        ),
+        path: "property/:id",
+        element: <ViewProperty></ViewProperty>,
         loader: () =>
           fetch(
-            `https://arif-islam21.github.io/recidential-json-data/recidential.json`
+            "https://arif-islam21.github.io/recidential-json-data/recidential.json"
           ),
+      },
+      {
+        path: "/profile",
+        element: <UserProfile></UserProfile>,
       },
     ],
   },
@@ -68,8 +53,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <AuthProvider> */}
-    <RouterProvider router={router} />
-    {/* </AuthProvider> */}
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
