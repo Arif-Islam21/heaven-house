@@ -8,7 +8,7 @@ import { AuthContext } from "../../Firebase/AuthProvider";
 
 const LogIn = () => {
   const { register, handleSubmit } = useForm();
-  const { emailSignIn, googleLogIn } = useContext(AuthContext);
+  const { emailSignIn, googleLogIn, githubLogIn } = useContext(AuthContext);
   // const { emailSignIn, googleLogIn, githubLogIn, setUser } =
   //   useContext(AuthContext);
   // const [loginError, setLoginError] = useState("");
@@ -41,18 +41,18 @@ const LogIn = () => {
   };
 
   // GITHUB SIGN IN EVENT HANDLER
-  // const handleGithubSignIn = () => {
-  //   githubLogIn()
-  //     .then((result) => {
-  //       console.log(result.user);
-  //       setSuccess("User Loged in with Github");
-  //       setUser(result.user);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //       setLoginError(error.message);
-  //     });
-  // };
+  const handleGithubSignIn = () => {
+    githubLogIn()
+      .then((result) => {
+        console.log(result.user);
+        // setSuccess("User Loged in with Github");
+        // setUser(result.user);
+      })
+      .catch((error) => {
+        console.error(error);
+        // setLoginError(error.message);
+      });
+  };
 
   // GOOGLE SIGN IN HANDLER
   const handleGoogleSignIn = () => {
@@ -134,7 +134,10 @@ const LogIn = () => {
               >
                 Google Login
               </button>
-              <button className="btn btn-outline btn-success">
+              <button
+                onClick={handleGithubSignIn}
+                className="btn btn-outline btn-success"
+              >
                 Github login
               </button>
             </div>
