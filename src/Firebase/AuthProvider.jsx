@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import PropTypes from "prop-types";
 import {
   GithubAuthProvider,
@@ -13,7 +13,10 @@ const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
 export const AuthContext = createContext(null);
+
 const AuthProvider = ({ children }) => {
+  // GETTING THE CURRENT USER TO SAVE AT STATE
+  const [user, setUser] = useState(null);
   // SIGN UP WITH EMAIL AND PASSWORD
   const emailSignUp = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -36,6 +39,8 @@ const AuthProvider = ({ children }) => {
     emailSignIn,
     googleLogIn,
     githubLogIn,
+    user,
+    setUser,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

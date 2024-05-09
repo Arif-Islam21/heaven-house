@@ -2,42 +2,37 @@
 import { NavLink } from "react-router-dom";
 // import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Firebase/AuthProvider";
 // import { Helmet } from "react-helmet";
 
 const LogIn = () => {
   const { register, handleSubmit } = useForm();
-  const { emailSignIn, googleLogIn, githubLogIn } = useContext(AuthContext);
+  const { emailSignIn, googleLogIn, githubLogIn, setUser } =
+    useContext(AuthContext);
   // const { emailSignIn, googleLogIn, githubLogIn, setUser } =
   //   useContext(AuthContext);
-  // const [loginError, setLoginError] = useState("");
-  // const [success, setSuccess] = useState("");
+  const [loginError, setLoginError] = useState("");
+  const [success, setSuccess] = useState("");
 
   // ONSUBMIT EVENT HANDLER
   const onSubmit = (data) => {
     const email = data.email;
     const password = data.password;
     console.log(email, password);
+    setLoginError("");
+    setSuccess("");
 
     emailSignIn(email, password)
       .then((result) => {
         console.log(result.user);
+        setUser(result.user);
+        setSuccess("User Logged in successfully");
       })
       .catch((error) => {
         console.log(error);
+        setLoginError(error.message);
       });
-
-    // emailSignIn(email, password)
-    //   .then((result) => {
-    //     console.log(result.user);
-    //     setSuccess("User Logged in successfully");
-    //     setUser(result.user);
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //     setLoginError(error.message);
-    //   });
   };
 
   // GITHUB SIGN IN EVENT HANDLER
@@ -45,12 +40,12 @@ const LogIn = () => {
     githubLogIn()
       .then((result) => {
         console.log(result.user);
-        // setSuccess("User Loged in with Github");
-        // setUser(result.user);
+        setSuccess("User Loged in with Github");
+        setUser(result.user);
       })
       .catch((error) => {
         console.error(error);
-        // setLoginError(error.message);
+        setLoginError(error.message);
       });
   };
 
@@ -59,12 +54,12 @@ const LogIn = () => {
     googleLogIn()
       .then((result) => {
         console.log(result.user);
-        // setSuccess("User Loged in with Google");
-        // setUser(result.user);
+        setSuccess("User Loged in with Google");
+        setUser(result.user);
       })
       .catch((error) => {
         console.error(error);
-        // setLoginError(error.message);
+        setLoginError(error.message);
       });
   };
 
@@ -126,6 +121,16 @@ const LogIn = () => {
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
               </div>
+              {success && (
+                <p className="text-center text-green-400 font-bold">
+                  {success}
+                </p>
+              )}
+              {loginError && (
+                <p className="text-center text-red-400 font-bold">
+                  {loginError}
+                </p>
+              )}
             </form>
             <div className="flex justify-around mb-8">
               <button
