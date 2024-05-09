@@ -8,7 +8,7 @@ import { AuthContext } from "../../Firebase/AuthProvider";
 
 const LogIn = () => {
   const { register, handleSubmit } = useForm();
-  const { emailSignIn } = useContext(AuthContext);
+  const { emailSignIn, googleLogIn } = useContext(AuthContext);
   // const { emailSignIn, googleLogIn, githubLogIn, setUser } =
   //   useContext(AuthContext);
   // const [loginError, setLoginError] = useState("");
@@ -55,18 +55,18 @@ const LogIn = () => {
   // };
 
   // GOOGLE SIGN IN HANDLER
-  // const handleGoogleSignIn = () => {
-  //   googleLogIn()
-  //     .then((result) => {
-  //       console.log(result.user);
-  //       setSuccess("User Loged in with Google");
-  //       setUser(result.user);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //       setLoginError(error.message);
-  //     });
-  // };
+  const handleGoogleSignIn = () => {
+    googleLogIn()
+      .then((result) => {
+        console.log(result.user);
+        // setSuccess("User Loged in with Google");
+        // setUser(result.user);
+      })
+      .catch((error) => {
+        console.error(error);
+        // setLoginError(error.message);
+      });
+  };
 
   return (
     <div className="container mx-auto">
@@ -128,7 +128,10 @@ const LogIn = () => {
               </div>
             </form>
             <div className="flex justify-around mb-8">
-              <button className="btn btn-outline btn-success">
+              <button
+                onClick={handleGoogleSignIn}
+                className="btn btn-outline btn-success"
+              >
                 Google Login
               </button>
               <button className="btn btn-outline btn-success">
