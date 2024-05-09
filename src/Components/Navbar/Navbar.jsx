@@ -1,6 +1,6 @@
 // import { useContext } from "react";
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Firebase/AuthProvider";
 
 const Navbar = () => {
@@ -69,31 +69,37 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <div
-          className="dropdown mt-4 tooltip flex gap-x-4 dropdown-end"
-          data-tip="user name"
-        >
-          <button onClick={handleLogOut} className="btn btn-ghost">
-            Log Out
-          </button>
+        {user ? (
           <div
-            tabIndex={0}
-            role="button"
-            className="btn  flex btn-ghost btn-circle avatar "
+            className="dropdown mt-4 tooltip flex gap-x-4 dropdown-end"
+            data-tip={user?.displayName ? user.displayName : "User Name"}
           >
-            <div className="w-10 tooltip  rounded-full">
-              <img
-                alt="Tailwind CSS Navbar component"
-                // src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                src={
-                  user?.photoURL
-                    ? user.photoURL
-                    : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                }
-              />
+            <button onClick={handleLogOut} className="btn btn-ghost">
+              Log Out
+            </button>
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn  flex btn-ghost btn-circle avatar "
+            >
+              <div className="w-10 tooltip  rounded-full">
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  // src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  src={
+                    user?.photoURL
+                      ? user.photoURL
+                      : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  }
+                />
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <Link to={"/login"}>
+            <button className="btn btn-ghost">Log In</button>
+          </Link>
+        )}
       </div>
     </div>
   );
