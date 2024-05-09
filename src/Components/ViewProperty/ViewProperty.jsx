@@ -4,11 +4,6 @@ import { useLoaderData, useParams } from "react-router-dom";
 const ViewProperty = () => {
   const [propertyData, setPropertyData] = useState([]);
 
-  // const propertyInt = parseInt(id);
-  // const propertyData = property?.find(
-  //   (singleProperty) => singleProperty.id === propertyInt
-  // );
-
   const { id } = useParams();
   const data = useLoaderData();
   useEffect(() => {

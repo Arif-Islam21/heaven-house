@@ -2,14 +2,12 @@ import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Firebase/AuthProvider";
-// import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet";
 
 const LogIn = () => {
   const { register, handleSubmit } = useForm();
   const { emailSignIn, googleLogIn, githubLogIn, setUser, user } =
     useContext(AuthContext);
-  // const { emailSignIn, googleLogIn, githubLogIn, setUser } =
-  //   useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -63,9 +61,9 @@ const LogIn = () => {
 
   return (
     <div className="container mx-auto">
-      {/* <Helmet>
+      <Helmet>
         <title>Login Page</title>
-      </Helmet> */}
+      </Helmet>
       <div className="hero  min-h-screen bg-base-100">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:pl-24 lg:text-left">

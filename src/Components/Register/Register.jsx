@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Firebase/AuthProvider";
 import { FaEye } from "react-icons/fa";
 import { IoMdEyeOff } from "react-icons/io";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -49,6 +50,9 @@ const Register = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Register Page</title>
+      </Helmet>
       <div className="hero min-h-full bg-base-100">
         <div className="hero-content">
           <div className="card shrink-0 w-full px-12 py-6 shadow-2xl bg-base-100">
