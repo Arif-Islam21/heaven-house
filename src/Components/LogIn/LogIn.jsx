@@ -8,7 +8,7 @@ import { AuthContext } from "../../Firebase/AuthProvider";
 
 const LogIn = () => {
   const { register, handleSubmit } = useForm();
-  const { emailSignUp } = useContext(AuthContext);
+  const { emailSignIn } = useContext(AuthContext);
   // const { emailSignIn, googleLogIn, githubLogIn, setUser } =
   //   useContext(AuthContext);
   // const [loginError, setLoginError] = useState("");
@@ -20,7 +20,7 @@ const LogIn = () => {
     const password = data.password;
     console.log(email, password);
 
-    emailSignUp(email, password)
+    emailSignIn(email, password)
       .then((result) => {
         console.log(result.user);
       })
