@@ -1,10 +1,21 @@
 // import { useContext } from "react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-// import { AuthContext } from "../AuthProvider/AuthProvider";
+import { AuthContext } from "../../Firebase/AuthProvider";
 
 const Navbar = () => {
-  // const { user, logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
 
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        console.log("sign out successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const links = (
     <>
       <NavLink to={"/"}>
@@ -62,7 +73,9 @@ const Navbar = () => {
           className="dropdown mt-4 tooltip flex gap-x-4 dropdown-end"
           data-tip="user name"
         >
-          <button className="btn btn-ghost">Log Out</button>
+          <button onClick={handleLogOut} className="btn btn-ghost">
+            Log Out
+          </button>
           <div
             tabIndex={0}
             role="button"
@@ -71,7 +84,12 @@ const Navbar = () => {
             <div className="w-10 tooltip  rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                // src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                src={
+                  user?.photoURL
+                    ? user.photoURL
+                    : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                }
               />
             </div>
           </div>

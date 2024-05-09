@@ -1,6 +1,4 @@
-// import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
-// import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Firebase/AuthProvider";
@@ -8,7 +6,7 @@ import { AuthContext } from "../../Firebase/AuthProvider";
 
 const LogIn = () => {
   const { register, handleSubmit } = useForm();
-  const { emailSignIn, googleLogIn, githubLogIn, setUser } =
+  const { emailSignIn, googleLogIn, githubLogIn, setUser, user } =
     useContext(AuthContext);
   // const { emailSignIn, googleLogIn, githubLogIn, setUser } =
   //   useContext(AuthContext);
@@ -22,7 +20,7 @@ const LogIn = () => {
     console.log(email, password);
     setLoginError("");
     setSuccess("");
-
+    console.log(user);
     emailSignIn(email, password)
       .then((result) => {
         console.log(result.user);

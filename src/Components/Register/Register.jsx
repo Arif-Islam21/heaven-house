@@ -7,6 +7,8 @@ import { IoMdEyeOff } from "react-icons/io";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
   const { register, handleSubmit } = useForm();
 
   const { emailSignUp } = useContext(AuthContext);
@@ -17,12 +19,31 @@ const Register = () => {
     const photoUrl = data.photoUrl;
     const password = data.password;
     console.log(email, name, photoUrl, password);
+
+    setSuccess("");
+    setError("");
+
+    if (password.length < 6) {
+      setError("Password should be at least 6 chacter");
+      return;
+    }
+    if (!/^(?=.*[A-Z]).+$/.test(password)) {
+      setError("Password must contain an uppercase");
+      return;
+    }
+    if (!/^(?=.*[a-z]).+$/.test(password)) {
+      setError("Password must contain an lowercase");
+      return;
+    }
+
     emailSignUp(email, password)
       .then((result) => {
         console.log(result.user);
+        setSuccess("User Created successfully");
       })
       .catch((error) => {
         console.log(error);
+        setError(error.message);
       });
   };
 
@@ -103,6 +124,12 @@ const Register = () => {
                 <button className="btn btn-primary">Register</button>
               </div>
             </form>
+            {error && (
+              <p className="text-center text-red-400 font-bold">{error}</p>
+            )}
+            {success && (
+              <p className="text-center text-green-400 font-bold">{success}</p>
+            )}
           </div>
         </div>
       </div>
