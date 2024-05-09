@@ -12,6 +12,7 @@ import Map from "./Components/Map/Map";
 import ViewProperty from "./Components/ViewProperty/ViewProperty";
 import UserProfile from "./Components/UserProfile/UserProfile";
 import AuthProvider from "./Firebase/AuthProvider";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,11 @@ const router = createBrowserRouter([
       },
       {
         path: "property/:id",
-        element: <ViewProperty></ViewProperty>,
+        element: (
+          <PrivateRoute>
+            <ViewProperty></ViewProperty>
+          </PrivateRoute>
+        ),
         loader: () =>
           fetch(
             "https://arif-islam21.github.io/recidential-json-data/recidential.json"
@@ -45,7 +50,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <UserProfile></UserProfile>,
+        element: (
+          <PrivateRoute>
+            <UserProfile></UserProfile>
+          </PrivateRoute>
+        ),
       },
     ],
   },

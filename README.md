@@ -1,8 +1,23 @@
-# React + Vite
+Website Name : Heaven House
+live site link: https://heaven-house-44d2b.firebaseapp.com/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+optional netlify link: https://mellifluous-kleicha-5cfe82.netlify.app/
 
-Currently, two official plugins are available:
+Features of this website ==>
+--> Decorative banner
+--> Login and Registration page
+--> Beautifull Footer
+--> Map showing on the website
+--> Fully Responsive
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+NPM packages used :
+
+1. React Leaflet
+2. React Hook Form
+3. Swiper Slider
+4. PropTypes
+5. React Icons
+6. Firebase
+7. react-healmet
+
+JSON data link: https://arif-islam21.github.io/recidential-json-data/recidential.json
