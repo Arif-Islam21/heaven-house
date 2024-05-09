@@ -1,8 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Firebase/AuthProvider";
+import { FaEye } from "react-icons/fa";
+import { IoMdEyeOff } from "react-icons/io";
+
 const Register = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const { register, handleSubmit } = useForm();
 
   const { emailSignUp } = useContext(AuthContext);
@@ -70,13 +74,18 @@ const Register = () => {
                 </label>
                 <div className="flex relative items-center">
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     placeholder="password"
                     className="input input-bordered"
                     {...register("password")}
                     required
                   />
-                  <span className="absolute right-4"></span>
+                  <span
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-4"
+                  >
+                    {showPassword ? <IoMdEyeOff /> : <FaEye />}
+                  </span>
                 </div>
                 <label className="label label-text-alt link link-hover">
                   <p>
