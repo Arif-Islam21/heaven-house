@@ -77,4 +77,4 @@ export default AuthProvider;
 
 AuthProvider.propTypes = {
   children: PropTypes.node,
-};
+};  
