@@ -135,12 +135,20 @@ const Navbar = () => {
           </div>
         ) : (
           <>
-            <NavLink to={"/login"}>
-              <li className="btn btn-ghost">Log In</li>
-            </NavLink>
-            <NavLink to={"/register"}>
-              <li className="btn btn-ghost">Register</li>
-            </NavLink>
+            {authenticationLinks.map((item, idx) => (
+              <NavLink
+                key={idx}
+                className={({ isActive }) => {
+                  return `btn px-4 py-2 text-md rounded-md mr-3 ${
+                    isActive &&
+                    "border-green-500 border-2 rounded-xl transform duration-300 text-green-600 font-bold"
+                  } font-semibold`;
+                }}
+                to={item.path}
+              >
+                {item.icons}
+              </NavLink>
+            ))}
           </>
         )}
       </div>
