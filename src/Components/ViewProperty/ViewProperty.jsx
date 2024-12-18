@@ -1,13 +1,27 @@
+import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 
 const ViewProperty = () => {
-  const property = useLoaderData();
+  const [propertyData, setPropertyData] = useState([]);
+
   const { id } = useParams();
-  const propertyInt = parseInt(id);
-  const propertyData = property?.find(
-    (singleProperty) => singleProperty.id === propertyInt
-  );
-  const { segment_name, image, description } = propertyData;
+  const data = useLoaderData();
+  useEffect(() => {
+    const estateData = data[id - 1];
+    setPropertyData(estateData);
+  }, [data, id]);
+
+  const {
+    // estate_title,
+    segment_name,
+    image,
+    description,
+    // price,
+    // status,
+    // area,
+    // location,
+    // facilities,
+  } = propertyData;
 
   return (
     <div>

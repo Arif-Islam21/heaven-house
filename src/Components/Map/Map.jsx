@@ -1,5 +1,6 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { Helmet } from "react-helmet";
 // import { Helmet } from "react-helmet";
 
 function Map() {
@@ -10,9 +11,9 @@ function Map() {
       zoom={13}
       scrollWheelZoom={false}
     >
-      {/* <Helmet>
+      <Helmet>
         <title>Country Map</title>
-      </Helmet> */}
+      </Helmet>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

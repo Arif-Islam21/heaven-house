@@ -1,27 +1,38 @@
 // import { useContext } from "react";
-import { Link } from "react-router-dom";
-// import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Firebase/AuthProvider";
 
 const Navbar = () => {
-  // const { user, logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
 
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        console.log("sign out successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const links = (
     <>
-      <Link to={"/"}>
+      <NavLink to={"/"}>
         <li className="btn btn-ghost">Home</li>
-      </Link>
-      <Link to={"/login"}>
+      </NavLink>
+      <NavLink to={"/login"}>
         <li className="btn btn-ghost">Log In</li>
-      </Link>
-      <Link to={"/register"}>
+      </NavLink>
+      <NavLink to={"/register"}>
         <li className="btn btn-ghost">Register</li>
-      </Link>
-      <Link to={"/map"}>
+      </NavLink>
+      <NavLink to={"/map"}>
         <li className="btn btn-ghost">Map</li>
-      </Link>
-      <Link to={"/profile"}>
+      </NavLink>
+      <NavLink to={"/profile"}>
         <li className="btn btn-ghost">Profile</li>
-      </Link>
+      </NavLink>
     </>
   );
 
@@ -58,12 +69,12 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        {/* {user && (
+        {user ? (
           <div
             className="dropdown mt-4 tooltip flex gap-x-4 dropdown-end"
             data-tip={user?.displayName ? user.displayName : "User Name"}
           >
-            <button onClick={() => logOut()} className="btn btn-ghost">
+            <button onClick={handleLogOut} className="btn btn-ghost">
               Log Out
             </button>
             <div
@@ -74,6 +85,7 @@ const Navbar = () => {
               <div className="w-10 tooltip  rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
+                  // src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
                   src={
                     user?.photoURL
                       ? user.photoURL
@@ -83,12 +95,11 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-        )}
-        {!user && (
-          <Link to="login" className="btn btn-ghost">
-            Log In
+        ) : (
+          <Link to={"/login"}>
+            <button className="btn btn-ghost">Log In</button>
           </Link>
-        )} */}
+        )}
       </div>
     </div>
   );

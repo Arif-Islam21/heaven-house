@@ -1,17 +1,18 @@
 import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+import { AuthContext } from "../../Firebase/AuthProvider";
 import { FaEye } from "react-icons/fa";
-import { AiFillEyeInvisible } from "react-icons/ai";
-// import { Helmet } from "react-helmet";
+import { IoMdEyeOff } from "react-icons/io";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
-  const { register, handleSubmit } = useForm();
-  const { emailSignUp } = useContext(AuthContext);
-  const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [success, setSuccess] = useState("");
-  const [showPass, setShowPass] = useState(false);
+  const [error, setError] = useState("");
+  const { register, handleSubmit } = useForm();
+
+  const { emailSignUp } = useContext(AuthContext);
 
   const onSubmit = (data) => {
     const email = data.email;
@@ -19,6 +20,9 @@ const Register = () => {
     const photoUrl = data.photoUrl;
     const password = data.password;
     console.log(email, name, photoUrl, password);
+
+    setSuccess("");
+    setError("");
 
     if (password.length < 6) {
       setError("Password should be at least 6 chacter");
@@ -36,19 +40,19 @@ const Register = () => {
     emailSignUp(email, password)
       .then((result) => {
         console.log(result.user);
-        setSuccess("User Created Successfully");
+        setSuccess("User Created successfully");
       })
       .catch((error) => {
-        console.error(error);
-        setError(error.message.split("/").slice(1));
+        console.log(error);
+        setError(error.message);
       });
   };
 
   return (
     <div>
-      {/* <Helmet>
-        <title>Registration Page</title>
-      </Helmet> */}
+      <Helmet>
+        <title>Register Page</title>
+      </Helmet>
       <div className="hero min-h-full bg-base-100">
         <div className="hero-content">
           <div className="card shrink-0 w-full px-12 py-6 shadow-2xl bg-base-100">
@@ -95,17 +99,17 @@ const Register = () => {
                 </label>
                 <div className="flex relative items-center">
                   <input
-                    type={showPass ? "text" : "password"}
+                    type={showPassword ? "text" : "password"}
                     placeholder="password"
                     className="input input-bordered"
                     {...register("password")}
                     required
                   />
                   <span
-                    onClick={() => setShowPass(!showPass)}
+                    onClick={() => setShowPassword(!showPassword)}
                     className="absolute right-4"
                   >
-                    {showPass ? <AiFillEyeInvisible /> : <FaEye />}
+                    {showPassword ? <IoMdEyeOff /> : <FaEye />}
                   </span>
                 </div>
                 <label className="label label-text-alt link link-hover">
@@ -124,8 +128,12 @@ const Register = () => {
                 <button className="btn btn-primary">Register</button>
               </div>
             </form>
-            {error && alert(error)}
-            {success && alert(success)}
+            {error && (
+              <p className="text-center text-red-400 font-bold">{error}</p>
+            )}
+            {success && (
+              <p className="text-center text-green-400 font-bold">{success}</p>
+            )}
           </div>
         </div>
       </div>
