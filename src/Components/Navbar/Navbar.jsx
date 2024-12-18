@@ -6,7 +6,8 @@ import { FaHouseChimney } from "react-icons/fa6";
 import { FcHome } from "react-icons/fc";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { ImProfile } from "react-icons/im";
-import { Tooltip } from "react-tooltip";
+import { IoLogIn } from "react-icons/io5";
+import { FaCashRegister } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -22,6 +23,18 @@ const Navbar = () => {
       });
   };
 
+  const authenticationLinks = [
+    {
+      path: "/login",
+      name: "Login",
+      icons: <IoLogIn size={24} />,
+    },
+    {
+      path: "/register",
+      name: "Register",
+      icons: <FaCashRegister size={24} />,
+    },
+  ];
   const linksDetails = [
     {
       path: "/",
@@ -109,7 +122,7 @@ const Navbar = () => {
             >
               <div className="w-10 tooltip  rounded-full">
                 <img
-                  alt="Tailwind CSS Navbar component"
+                  alt="User profile picture"
                   // src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
                   src={
                     user?.photoURL
