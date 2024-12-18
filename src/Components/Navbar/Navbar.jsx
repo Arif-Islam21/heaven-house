@@ -1,11 +1,16 @@
 // import { useContext } from "react";
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../Firebase/AuthProvider";
+import { FaHouseChimney } from "react-icons/fa6";
+import { FcHome } from "react-icons/fc";
+import { FaMapMarkedAlt } from "react-icons/fa";
+import { ImProfile } from "react-icons/im";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
 
   const handleLogOut = () => {
     logOut()
@@ -16,23 +21,41 @@ const Navbar = () => {
         console.log(error);
       });
   };
+
+  const linksDetails = [
+    {
+      path: "/",
+      name: "Home",
+      icons: <FaHouseChimney size={24} />,
+    },
+    {
+      path: "/map",
+      name: "Map",
+      icons: <FaMapMarkedAlt size={24} />,
+    },
+    {
+      path: "/profile",
+      name: "Profile",
+      icons: <ImProfile size={24} />,
+    },
+  ];
+
   const links = (
     <>
-      <NavLink to={"/"}>
-        <li className="btn btn-ghost">Home</li>
-      </NavLink>
-      <NavLink to={"/login"}>
-        <li className="btn btn-ghost">Log In</li>
-      </NavLink>
-      <NavLink to={"/register"}>
-        <li className="btn btn-ghost">Register</li>
-      </NavLink>
-      <NavLink to={"/map"}>
-        <li className="btn btn-ghost">Map</li>
-      </NavLink>
-      <NavLink to={"/profile"}>
-        <li className="btn btn-ghost">Profile</li>
-      </NavLink>
+      {linksDetails.map((item, idx) => (
+        <NavLink
+          key={idx}
+          className={({ isActive }) => {
+            return `btn px-4 py-2 text-md rounded-md mr-3 ${
+              isActive &&
+              "border-green-500 border-2 rounded-xl transform duration-300 text-green-600 font-bold"
+            } font-semibold`;
+          }}
+          to={item.path}
+        >
+          {item.icons}
+        </NavLink>
+      ))}
     </>
   );
 
@@ -63,7 +86,9 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Heaven House</a>
+        <a className="btn btn-ghost text-xl">
+          <FcHome size={28} />
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -96,9 +121,14 @@ const Navbar = () => {
             </div>
           </div>
         ) : (
-          <Link to={"/login"}>
-            <button className="btn btn-ghost">Log In</button>
-          </Link>
+          <>
+            <NavLink to={"/login"}>
+              <li className="btn btn-ghost">Log In</li>
+            </NavLink>
+            <NavLink to={"/register"}>
+              <li className="btn btn-ghost">Register</li>
+            </NavLink>
+          </>
         )}
       </div>
     </div>
