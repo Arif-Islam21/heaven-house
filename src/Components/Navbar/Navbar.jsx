@@ -7,7 +7,7 @@ import { FcHome } from "react-icons/fc";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { ImProfile } from "react-icons/im";
 import { IoLogIn } from "react-icons/io5";
-import { FaCashRegister } from "react-icons/fa";
+import { SiSimplelogin } from "react-icons/si";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -32,7 +32,7 @@ const Navbar = () => {
     {
       path: "/register",
       name: "Register",
-      icons: <FaCashRegister size={24} />,
+      icons: <SiSimplelogin size={24} />,
     },
   ];
   const linksDetails = [
@@ -58,8 +58,9 @@ const Navbar = () => {
       {linksDetails.map((item, idx) => (
         <NavLink
           key={idx}
+          data-tip={item.name}
           className={({ isActive }) => {
-            return `btn px-4 py-2 text-md rounded-md mr-3 ${
+            return `btn tooltip tooltip-bottom px-4 py-2 text-md rounded-md mr-3 ${
               isActive &&
               "border-green-500 border-2 rounded-xl transform duration-300 text-green-600 font-bold"
             } font-semibold`;
@@ -73,7 +74,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar  bg-base-100">
+    <div className="navbar shadow-md bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -138,8 +139,9 @@ const Navbar = () => {
             {authenticationLinks.map((item, idx) => (
               <NavLink
                 key={idx}
+                data-tip={item.name}
                 className={({ isActive }) => {
-                  return `btn px-4 py-2 text-md rounded-md mr-3 ${
+                  return `btn px-4 py-2 tooltip tooltip-bottom text-md rounded-md mr-3 ${
                     isActive &&
                     "border-green-500 border-2 rounded-xl transform duration-300 text-green-600 font-bold"
                   } font-semibold`;
